@@ -13,18 +13,19 @@ var sso = require('./lib/sso.js')(config.sso);
 var express = require('express');
 var app = express();
 
-// GET /session/attributes：验证一个 Session 是否有效并获取属性
-app.get('/session/attributes', function (req, res) {
-  if (!req.query.sessionId) {
-    res.json({err: 'Empty session id'});
+// GET /session/properties：验证一个 Session 是否有效并获取属性
+app.get('/session/properties', function (req, res) {
+  debug(req.url);
+  if (!req.query.sessionid) {
+    res.json({ok: false, err: 'Empty session id'});
     return;
   }
-  sso.getSessionIdentity(req.query.sessionId, function (err, properties) {
+  sso.getSessionIdentity(req.query.sessionid, function (err, properties) {
     if (err) {
-      res.json({err: err.message});
+      res.json({ok: false, err: err.message});
       return;
     }
-    res.json(properties);
+    res.json({ok: true, properties: properties});
   });
 });
 

@@ -11,6 +11,6 @@ npm start
 
 ### 接口
 
-- `GET /session/attributes?sessionId=iPlanetDirectoryProCookie`
+- `GET /session/properties?sessionid=iPlanetDirectoryProCookie`
 
   获取一个会话的属性，如果失败或者会话不存在，则返回一个包含 `msg` 的 JSON。
