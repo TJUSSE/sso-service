@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RequestSet vers="1.0" svcid="Session" reqid="10">
+<Request><![CDATA[
+<SessionRequest vers="1.0" reqid="4">
+<GetSession reset="true">
+<SessionID>{{session}}</SessionID>
+</GetSession>
+</SessionRequest>]]>
+</Request>
+</RequestSet>

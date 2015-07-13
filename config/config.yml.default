@@ -1,0 +1,5 @@
+stdLogLevel: debug
+listen:
+  host: 127.0.0.1
+  port: 20212
+sso: http://tjis2.tongji.edu.cn:58080
