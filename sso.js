@@ -9,6 +9,9 @@ logger.expose(GLOBAL);
 // sso API
 var sso = require('./lib/sso.js')(config.sso);
 
+// info API
+var info = require('./lib/info.js');
+
 // REST server
 var express = require('express');
 var app = express();
@@ -26,6 +29,22 @@ app.get('/session/properties', function (req, res) {
       return;
     }
     res.json({ok: true, properties: properties});
+  });
+});
+
+// GET /info/student：获取一个学生的基本信息
+app.get('/info/student', function (req, res) {
+  debug(req.url);
+  if (!req.query.sessionid) {
+    res.json({ok: false, err: 'Empty session id'});
+    return;
+  }
+  info.getStudentInfo(req.query.sessionid, function (err, info) {
+    if (err) {
+      res.json({ok: false, err: err.message});
+      return;
+    }
+    res.json({ok: true, info: info});
   });
 });
 
