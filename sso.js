@@ -1,3 +1,4 @@
+/*global GLOBAL, debug */
 // load configurations
 var configLoader = require('./lib/configLoader.js');
 var config = configLoader.loadYaml('config');
@@ -32,7 +33,7 @@ app.get('/session/properties', function (req, res) {
   });
 });
 
-// GET /info/student：获取一个学生的基本信息
+// GET /info/student：获取学生的基本信息
 app.get('/info/student', function (req, res) {
   debug(req.url);
   if (!req.query.sessionid) {
@@ -40,6 +41,22 @@ app.get('/info/student', function (req, res) {
     return;
   }
   info.getStudentInfo(req.query.sessionid, function (err, info) {
+    if (err) {
+      res.json({ok: false, err: err.message});
+      return;
+    }
+    res.json({ok: true, info: info});
+  });
+});
+
+// GET /info/teacher：获取教师的基本信息
+app.get('/info/teacher', function (req, res) {
+  debug(req.url);
+  if (!req.query.sessionid) {
+    res.json({ok: false, err: 'Empty session id'});
+    return;
+  }
+  info.getTeacherInfo(req.query.sessionid, function (err, info) {
     if (err) {
       res.json({ok: false, err: err.message});
       return;

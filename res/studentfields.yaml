@@ -1,0 +1,13 @@
+XH: id                          # 学号
+XM: name                        # 姓名
+XBDM_displayvalue: gender       # 性别
+CSRQ: birth                     # 生日
+SFZJH: idcard                   # 身份证号
+YXSH_displayvalue: department   # 学院（如软件学院）
+ZYDM_displayvalue: major        # 专业（如软件工程）
+XZNJ: grade                     # 年级（如2013）
+XSLBDM_displayvalue: type       # 学历（如本科）
+SJH: mobile                     # 手机号
+QQH: qq                         # QQ 号
+JTDZ: address                   # 家庭地址
+DZXX: email                     # 电子邮件
