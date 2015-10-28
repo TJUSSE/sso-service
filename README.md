@@ -3,18 +3,25 @@ sso-service
 
 [![Dependency Status](https://www.versioneye.com/user/projects/56025e06f5f2eb00190008d8/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56025e06f5f2eb00190008d8)
 
-封装了同济大学单点登录验证接口和学工网个人信息接口，提供 REST 方式的 Web API 以便应用程序调用。
+封装了同济大学单点登录验证接口和学工网个人信息接口，提供 REST 方式的 Web API 以便应用程序调用。推荐以非 ROOT 权限运行。
 
 ### 安装依赖
 
 ```bash
-npm install
+cnpm install
 ```
 
 ### 启动服务
 
 ```bash
 npm start
+```
+
+### 使用 PM2 监视服务
+
+```bash
+pm2 start sso.js
+# pm2 startup    # 生成自启动项
 ```
 
 ### 接口
